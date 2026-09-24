@@ -8,14 +8,6 @@ Quickly compare open-weight LLMs for reasoning by reviewing results across multi
 
 📄 **[View Full Analysis → llm-reasoning-benchmarks.md](llm-reasoning-benchmarks.md)**
 
-### What's Inside
-
-| Diagram | Purpose | Best For |
-|---------|---------|----------|
-| **Decision Tree** (Diagram 1) | Progressive gating: MMLU → GSM8K → BBH → MATH → GPQA | Evaluating a new model step-by-step; finding its tier ceiling |
-| **Swimlane** (Diagram 2) | Horizontal tier bands (T0–T4) with benchmark score ranges | Seeing which benchmarks best discriminate at each tier level |
-| **Sankey Flow** (Diagram 3) | Models flowing through gates into tier buckets; Qwen 3.x as calibration ruler | Comparing model families; understanding capability gaps |
-
 ### Tier Summary
 
 | Tier | Params | MMLU | GSM8K | BBH | MATH | GPQA | Example Models |
@@ -34,6 +26,12 @@ The **BBH (BIG-Bench Hard)** benchmark shows the largest tier separation—it's 
 
 ---
 
-## Other Charts
+## Analog vs Digital DSP Decision Flowchart
+
+A decision tree for choosing between analog and digital signal processing implementations. Based on [DSP Guide Chapter 21](https://www.dspguide.com/ch21/1.htm), it evaluates requirements in sequence: dynamic range (>10,000), real-time frequency range (>10,000), latency (<1ns), ripple (<1%), roll-off/stopband needs, and linear phase. Digital wins for precision, linear phase, and steep roll-offs; analog wins for extreme dynamic range, ultra-low latency, and high-frequency real-time processing.
+
+📄 **[View Flowchart → analog-v-digital-dsp.md](analog-v-digital-dsp.md)**
+
+---
 
 *More engineering decision charts coming soon...*
