@@ -27,9 +27,9 @@ Quickly compare open-weight LLMs for reasoning by reviewing results across multi
 |------|------|-------|-----|------|------|-----------|----------------------|
 | **T0: Entry** | 40–55% | 20–40% | 0–10% | 0–5% | ~25% (random) | 5–15% | Qwen3-0.6B, Phi-3-mini-3.8B, Gemma-2-2B, Llama-3.2-1B |
 | **T1: Basic** | 55–65% | 50–75% | 20–35% | 10–20% | 30–35% | 20–35% | Qwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B, Phi-3.5-mini |
-| **T2: Competent** | 65–75% | 80–90% | 40–55% | 25–40% | 35–45% | 40–55% | Qwen3-8B, Qwen3-14B, Qwen3.8-27B, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B |
+| **T2: Competent** | 65–75% | 80–90% | 40–55% | 25–40% | 35–45% | 40–55% | Qwen3-8B, Qwen3-14B, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B |
 | **T3: Advanced** | 75–85% | 90–95% | 55–70% | 40–55% | 40–50% | 55–70% | Qwen3-32B, Qwen3-30B-A3B, Qwen3.6-35B-A3B, Llama-3.1-70B, Nemotron-3-Ultra, Qwen2.5-72B |
-| **T4: Expert** | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | **Open:** Qwen3-235B-A22B, Llama-3.1-405B<br/>**Closed:** GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro |
+| **T4: Expert** | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | **Open:** Qwen3-235B-A22B, Qwen3.8-27B, Qwen3.8-Max, Llama-3.1-405B<br/>**Closed:** GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro |
 
 ---
 
@@ -58,9 +58,9 @@ flowchart TD
         direction TB
         T0[T0: Entry\nQwen3-0.6B, Phi-3-mini, Gemma-2-2B, Llama-3.2-1B]
         T1[T1: Basic\nQwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B]
-        T2[T2: Competent\nQwen3-8B, Qwen3-14B, Qwen3.8-27B\nLlama-3.1-8B, Nemotron-3-8B, Gemma-2-9B]
+        T2[T2: Competent\nQwen3-8B, Qwen3-14B\nLlama-3.1-8B, Nemotron-3-8B, Gemma-2-9B]
         T3[T3: Advanced\nQwen3-32B, Qwen3-30B-A3B, Qwen3.6-35B-A3B\nLlama-3.1-70B, Nemotron-3-Ultra]
-        T4open["T4: Expert (Open)\nQwen3-235B-A22B, Llama-3.1-405B"]
+        T4open["T4: Expert (Open)\nQwen3-235B-A22B, Qwen3.8-27B, Qwen3.8-Max, Llama-3.1-405B"]
         T4closed["T4: Expert (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
     end
     
@@ -136,99 +136,13 @@ flowchart TD
 
 ---
 
-## Diagram 2: Sankey-Style Model Flow
-
-Models flow left-to-right through benchmark gates, landing in tier buckets. Qwen 3.x family (all sizes) traces through as a calibration ruler.
-
-```mermaid
-%%{init: {'themeVariables': {'fontSize': '16px'}}}%%
-flowchart LR
-    %% Source
-    AllModels[("All Models\nEnter Here")]
-    
-    %% Gates
-    GateMMLU["MMLU Gate\n(50% / 65% / 75% / 85%)"]
-    GateGSM8K["GSM8K Gate\n(50% / 75%)"]
-    GateBBH["BBH Gate\n(30% / 55%)"]
-    GateMATH["MATH Gate\n(25% / 55%)"]
-    GateGPQA["GPQA Gate\n(40% / 65%)"]
-    
-    %% Tier Buckets
-    BucketT0["T0: Entry\nQwen3-0.6B\nPhi-3-mini-3.8B\nGemma-2-2B\nLlama-3.2-1B"]
-    BucketT1["T1: Basic\nQwen3-1.7B\nQwen3-4B\nMistral-7B\nLlama-3.2-3B\nPhi-3.5-mini"]
-    BucketT2["T2: Competent\nQwen3-8B\nQwen3-14B\nQwen3.8-27B\nLlama-3.1-8B\nNemotron-3-8B\nGemma-2-9B"]
-    BucketT3["T3: Advanced\nQwen3-32B\nQwen3-30B-A3B\nQwen3.6-35B-A3B\nLlama-3.1-70B\nNemotron-3-Ultra"]
-    BucketT4open["T4: Expert (Open)\nQwen3-235B-A22B\nLlama-3.1-405B"]
-    BucketT4closed["T4: Expert (Closed)\nGPT-4o\nClaude 3.5 Sonnet\nGemini 1.5 Pro"]
-    
-    %% Flow paths
-    AllModels --> GateMMLU
-    
-    GateMMLU -- "Fail <50%" --> BucketT0
-    GateMMLU -- "50–65%" --> GateGSM8K
-    GateMMLU -- "65–75%" --> GateMATH
-    GateMMLU -- "75–85%" --> BucketT3
-    GateMMLU -- ">85%" --> BucketT4closed
-    
-    GateGSM8K -- "Fail <50%" --> BucketT1
-    GateGSM8K -- "50–75%" --> GateBBH
-    
-    GateBBH -- "Fail <30%" --> BucketT1
-    GateBBH -- "30–55%" --> BucketT2
-    GateBBH -- ">55%" --> GateMATH
-    
-    GateMATH -- "Fail <25%" --> BucketT2
-    GateMATH -- "25–55%" --> GateGPQA
-    GateMATH -- ">55%" --> BucketT3
-    
-    GateGPQA -- "Fail <40%" --> BucketT3
-    GateGPQA -- "40–65%" --> BucketT4open
-    GateGPQA -- ">65%" --> BucketT4closed
-    
-    %% Qwen 3.x calibration trace (highlighted path)
-    QwenTrace["Qwen 3.x Family\n(Calibration Ruler)"]
-    QwenTrace -.-> GateMMLU
-    QwenTrace -.-> GateGSM8K
-    QwenTrace -.-> GateBBH
-    QwenTrace -.-> GateMATH
-    QwenTrace -.-> GateGPQA
-    QwenTrace -.-> BucketT0
-    QwenTrace -.-> BucketT1
-    QwenTrace -.-> BucketT2
-    QwenTrace -.-> BucketT3
-    QwenTrace -.-> BucketT4open
-    
-    %% Styling
-    classDef source fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#222,font-size:16px;
-    classDef gate fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#222,font-size:16px;
-    classDef bucket0 fill:#ffcccc,stroke:#cc0000,stroke-width:2px,color:#222,font-size:16px;
-    classDef bucket1 fill:#ffe6cc,stroke:#cc6600,stroke-width:2px,color:#222,font-size:16px;
-    classDef bucket2 fill:#ffffcc,stroke:#ccaa00,stroke-width:2px,color:#222,font-size:16px;
-    classDef bucket3 fill:#ccffcc,stroke:#00aa00,stroke-width:2px,color:#222,font-size:16px;
-    classDef bucket4 fill:#cce6ff,stroke:#0066cc,stroke-width:2px,color:#222,font-size:16px;
-    classDef trace fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px,stroke-dasharray: 5 5,color:#222,font-size:16px;
-    
-    class AllModels source;
-    class GateMMLU,GateGSM8K,GateBBH,GateMATH,GateGPQA gate;
-    class BucketT0 bucket0;
-    class BucketT1 bucket1;
-    class BucketT2 bucket2;
-    class BucketT3 bucket3;
-    class BucketT4open,BucketT4closed bucket4;
-    class QwenTrace trace;
-```
-
-**Reading the flow:** The **Qwen 3.x trace** (purple dashed) shows how a single model family spans all tiers—use it to calibrate where new models land. Models hitting BucketT1 at BBH gate have "basic reasoning but weak CoT"; models reaching BucketT3 at MATH gate have "strong math but not expert science."
-
----
-
 ## Usage Guide
 
 ### For Evaluating a New Model
 1. Run **MMLU** first (cheap, broad signal)
 2. Follow the decision tree (Diagram 1) to know which benchmark to run next
 3. Stop when the model fails a gate—that's its tier ceiling
-4. Use Diagram 2 to find similar models for comparison
+4. Compare against representative models in that tier
 
 ### Interpreting Overlap Zones
 | Zone | Meaning | Action |
@@ -242,7 +156,7 @@ flowchart LR
 Thresholds are soft. When new models are released:
 1. Run the 5 core benchmarks (MMLU, GSM8K, BBH, MATH, GPQA)
 2. Plot results against the tier threshold table
-3. Adjust gate thresholds in Diagram 1/2 if tier boundaries shift
+3. Adjust gate thresholds in Diagram 1 if tier boundaries shift
 4. The Qwen 3.x family provides a stable internal ruler
 
 ---
@@ -256,6 +170,7 @@ Thresholds are soft. When new models are released:
 - **Original benchmark papers**: MMLU (Hendrycks et al. 2021), GSM8K (Cobbe et al. 2021), BBH (Suzgun et al. 2022), MATH (Hendrycks et al. 2021), GPQA (Rein et al. 2023)
 - **Qwen3.6-35B-A3B model card**: https://huggingface.co/Qwen/Qwen3.6-35B-A3B
 - **Qwen3.8-27B model card**: https://huggingface.co/Qwen/Qwen3.8-27B
+- **Qwen blog (Qwen3.8 benchmarks)**: https://qwen.ai/blog?id=qwen3.8
 
 ---
 
