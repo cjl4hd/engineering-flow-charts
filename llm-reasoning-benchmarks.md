@@ -134,11 +134,11 @@ flowchart LR
     AllModels[("All Models\nEnter Here")]
     
     %% Gates
-    GateMMLU[[MMLU Gate\n(50% / 65% / 75% / 85%)]]
-    GateGSM8K[[GSM8K Gate\n(50% / 75%)]]
-    GateBBH[[BBH Gate\n(30% / 55%)]]
-    GateMATH[[MATH Gate\n(25% / 55%)]]
-    GateGPQA[[GPQA Gate\n(40% / 65%)]]
+    GateMMLU["MMLU Gate\n(50% / 65% / 75% / 85%)"]
+    GateGSM8K["GSM8K Gate\n(50% / 75%)"]
+    GateBBH["BBH Gate\n(30% / 55%)"]
+    GateMATH["MATH Gate\n(25% / 55%)"]
+    GateGPQA["GPQA Gate\n(40% / 65%)"]
     
     %% Tier Buckets
     BucketT0["T0: Tiny\nQwen3-0.6B\nPhi-3-mini-3.8B\nGemma-2-2B\nLlama-3.2-1B"]
@@ -173,7 +173,7 @@ flowchart LR
     GateGPQA -- ">65%" --> BucketT4closed
     
     %% Qwen 3.x calibration trace (highlighted path)
-    QwenTrace[["Qwen 3.x Family\n(Calibration Ruler)"]]
+    QwenTrace["Qwen 3.x Family\n(Calibration Ruler)"]
     QwenTrace -.-> GateMMLU
     QwenTrace -.-> GateGSM8K
     QwenTrace -.-> GateBBH
