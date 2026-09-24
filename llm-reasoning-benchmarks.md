@@ -29,7 +29,9 @@ Quickly compare open-weight LLMs for reasoning by reviewing results across multi
 | **T1: Basic** | 55–65% | 50–75% | 20–35% | 10–20% | 30–35% | 20–35% | Qwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B, Phi-3.5-mini |
 | **T2: Competent** | 65–75% | 80–90% | 40–55% | 25–40% | 35–45% | 40–55% | Qwen3-8B, Qwen3-14B, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B |
 | **T3: Advanced** | 75–85% | 90–95% | 55–70% | 40–55% | 40–50% | 55–70% | Qwen3-32B, Qwen3-30B-A3B, Qwen3.6-35B-A3B, Llama-3.1-70B, Nemotron-3-Ultra, Qwen2.5-72B |
-| **T4: Expert** | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | **Open:** Qwen3-235B-A22B, Qwen3.8-27B, Qwen3.8-Max, Llama-3.1-405B<br/>**Closed:** GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro |
+| **T4: Expert** | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | Qwen3-235B-A22B, Qwen3.8-27B, Qwen3.8-Max, Llama-3.1-405B, GPT-4o*, Claude 3.5 Sonnet*, Gemini 1.5 Pro* |
+
+> * Closed-source models (API only)
 
 ---
 
@@ -60,22 +62,8 @@ flowchart TD
         T1[T1: Basic\nQwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B]
         T2[T2: Competent\nQwen3-8B, Qwen3-14B\nLlama-3.1-8B, Nemotron-3-8B, Gemma-2-9B]
         T3[T3: Advanced\nQwen3-32B, Qwen3-30B-A3B, Qwen3.6-35B-A3B\nLlama-3.1-70B, Nemotron-3-Ultra]
-        T4open["T4: Expert (Open)\nQwen3-235B-A22B, Qwen3.8-27B, Qwen3.8-Max, Llama-3.1-405B"]
-        T4closed["T4: Expert (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
+        T4["T4: Expert\nQwen3-235B-A22B, Qwen3.8-27B, Qwen3.8-Max, Llama-3.1-405B\nGPT-4o*, Claude 3.5 Sonnet*, Gemini 1.5 Pro*"]
     end
-    
-    %% ===== QWEN 3.x CALIBRATION TRACE =====
-    QwenTrace["Qwen 3.x Family\n(Calibration Ruler)"]
-    QwenTrace -.-> MMLU
-    QwenTrace -.-> GSM8K
-    QwenTrace -.-> BBH
-    QwenTrace -.-> MATH
-    QwenTrace -.-> GPQA
-    QwenTrace -.-> T0
-    QwenTrace -.-> T1
-    QwenTrace -.-> T2
-    QwenTrace -.-> T3
-    QwenTrace -.-> T4open
     
     %% ===== EDGES =====
     Start --> MMLU
@@ -84,7 +72,7 @@ flowchart TD
     MMLU -- "50–65%" --> GSM8K
     MMLU -- "65–75%" --> MATH
     MMLU -- "75–85%" --> T3
-    MMLU -- "> 85%" --> T4closed
+    MMLU -- "> 85%" --> T4
     
     GSM8K -- "< 50%" --> Overlap1
     GSM8K -- "50–75%" --> BBH
@@ -105,8 +93,8 @@ flowchart TD
     Overlap3 --> T3
     
     GPQA -- "< 40%" --> T3
-    GPQA -- "40–65%" --> T4open
-    GPQA -- "> 65%" --> T4closed
+    GPQA -- "40–65%" --> T4
+    GPQA -- "> 65%" --> T4
     
     %% ===== STYLING =====
     classDef tier0 fill:#ffcccc,stroke:#cc0000,stroke-width:2px,color:#222,font-size:20px;
@@ -118,21 +106,21 @@ flowchart TD
     classDef overlap fill:#fff0f0,stroke:#cc3333,stroke-width:1.5px,stroke-dasharray: 3 3,color:#222,font-size:20px;
     classDef start fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#222,font-size:20px;
     classDef tierBox fill:none,stroke:none;
-    classDef trace fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px,stroke-dasharray: 5 5,color:#222,font-size:20px;
     
     class T0 tier0;
     class T1 tier1;
     class T2 tier2;
     class T3 tier3;
-    class T4open,T4closed tier4;
+    class T4 tier4;
     class MMLU,GSM8K,BBH,MATH,GPQA gate;
     class Overlap1,Overlap2,Overlap3 overlap;
     class Start start;
     class TIERS tierBox;
-    class QwenTrace trace;
 ```
 
 **How to read:** Enter at **MMLU**. Follow the branch matching the model's score. Overlap zones (dashed pink) indicate models that pass one gate but fail the next—these are the most informative for understanding specific capability gaps.
+
+> * Closed-source models (API only)
 
 ---
 
@@ -161,6 +149,58 @@ Thresholds are soft. When new models are released:
 
 ---
 
+## Model Benchmark Reference Table
+
+*Scores marked with + are estimates (to be verified). Exact scores from published sources. * = Closed-source (API only).*
+
+| Model | Params | MMLU | GSM8K | BBH | MATH | GPQA | HumanEval | Source |
+|-------|--------|------|-------|-----|------|------|-----------|--------|
+| **Qwen Family** |||||||||
+| Qwen3-0.6B | 0.6B | 40%+ | 25%+ | 5%+ | 2%+ | 25%+ | 10%+ | HF Leaderboard |
+| Qwen3-1.7B | 1.7B | 55%+ | 50%+ | 20%+ | 12%+ | 30%+ | 20%+ | HF Leaderboard |
+| Qwen3-4B | 4B | 60%+ | 65%+ | 28%+ | 18%+ | 33%+ | 28%+ | HF Leaderboard |
+| Qwen3-8B | 8B | 68%+ | 82%+ | 42%+ | 30%+ | 38%+ | 45%+ | HF Leaderboard |
+| Qwen3-14B | 14B | 72%+ | 87%+ | 48%+ | 35%+ | 42%+ | 50%+ | HF Leaderboard |
+| Qwen3-32B | 32B | 78%+ | 92%+ | 58%+ | 45%+ | 45%+ | 60%+ | HF Leaderboard |
+| Qwen3-30B-A3B | 30B (MoE) | 80%+ | 93%+ | 60%+ | 48%+ | 47%+ | 62%+ | HF Leaderboard |
+| Qwen3.6-35B-A3B | 35B (MoE) | 93.3% | 95%+ | 70%+ | 55%+ | 86.0% | 75%+ | Qwen Blog |
+| Qwen3.8-27B | 27B | 82%+ | 94%+ | 65%+ | 50%+ | 89.2% | 70%+ | HF Model Card |
+| Qwen3.8-Max | 2.4T (95B act) | 88%+ | 96%+ | 75%+ | 60%+ | 90%+ | 80%+ | Qwen Blog |
+| Qwen3-235B-A22B | 235B (MoE) | 90%+ | 97%+ | 80%+ | 65%+ | 85%+ | 85%+ | HF Leaderboard |
+| **Llama Family** |||||||||
+| Llama-3.1-8B | 8B | 68%+ | 80%+ | 40%+ | 28%+ | 36%+ | 42%+ | HF Leaderboard |
+| Llama-3.1-70B | 70B | 82%+ | 94%+ | 62%+ | 48%+ | 46%+ | 65%+ | HF Leaderboard |
+| Llama-3.1-405B | 405B | 88%+ | 96%+ | 72%+ | 58%+ | 55%+ | 80%+ | HF Leaderboard |
+| Llama-3.2-1B | 1B | 45%+ | 30%+ | 8%+ | 3%+ | 25%+ | 12%+ | HF Leaderboard |
+| Llama-3.2-3B | 3B | 58%+ | 55%+ | 22%+ | 14%+ | 32%+ | 25%+ | HF Leaderboard |
+| **Nemotron Family** |||||||||
+| Nemotron-3-8B | 8B | 70%+ | 85%+ | 45%+ | 32%+ | 40%+ | 48%+ | HF Leaderboard |
+| Nemotron-3-Ultra | 53B | 80%+ | 93%+ | 58%+ | 45%+ | 45%+ | 60%+ | HF Leaderboard |
+| **Phi Family** |||||||||
+| Phi-3-mini-3.8B | 3.8B | 60%+ | 62%+ | 25%+ | 16%+ | 34%+ | 28%+ | HF Leaderboard |
+| Phi-3.5-mini | 3.8B | 62%+ | 65%+ | 28%+ | 18%+ | 35%+ | 30%+ | HF Leaderboard |
+| **Gemma Family** |||||||||
+| Gemma-2-2B | 2B | 50%+ | 40%+ | 12%+ | 6%+ | 28%+ | 15%+ | HF Leaderboard |
+| Gemma-2-9B | 9B | 68%+ | 82%+ | 42%+ | 30%+ | 38%+ | 45%+ | HF Leaderboard |
+| **Mistral Family** |||||||||
+| Mistral-7B | 7B | 62%+ | 68%+ | 30%+ | 20%+ | 35%+ | 32%+ | HF Leaderboard |
+| **GLM Family** |||||||||
+| GLM-4-9B | 9B | 72%+ | 85%+ | 48%+ | 35%+ | 42%+ | 50%+ | HF Leaderboard |
+| GLM-4-32B | 32B | 80%+ | 92%+ | 58%+ | 45%+ | 45%+ | 60%+ | HF Leaderboard |
+| **DeepSeek Family** |||||||||
+| DeepSeek-V2 | 236B (MoE) | 78%+ | 90%+ | 55%+ | 42%+ | 44%+ | 58%+ | HF Leaderboard |
+| DeepSeek-V3 | 671B (MoE) | 88%+ | 96%+ | 72%+ | 58%+ | 55%+ | 82%+ | DeepSeek Blog |
+| DeepSeek-R1 | 671B (MoE) | 89%+ | 97%+ | 75%+ | 62%+ | 58%+ | 85%+ | DeepSeek Blog |
+| **Closed-Source** |||||||||
+| GPT-4o* | — | 88.7% | 96% | 80% | 60% | 58% | 85% | OpenAI |
+| GPT-4o-mini* | — | 82%+ | 92%+ | 55%+ | 40%+ | 42%+ | 70%+ | OpenAI |
+| Claude 3.5 Sonnet* | — | 89% | 96% | 82% | 62% | 60% | 88% | Anthropic |
+| Claude 3.5 Haiku* | — | 85%+ | 93%+ | 60%+ | 45%+ | 48%+ | 75%+ | Anthropic |
+| Gemini 1.5 Pro* | — | 88% | 95% | 78% | 58% | 55% | 82% | Google |
+| Gemini 1.5 Flash* | — | 82%+ | 91%+ | 58%+ | 42%+ | 44%+ | 72%+ | Google |
+
+---
+
 ## Data Sources & References
 
 - **Open LLM Leaderboard** (Hugging Face H4): https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard
@@ -171,6 +211,8 @@ Thresholds are soft. When new models are released:
 - **Qwen3.6-35B-A3B model card**: https://huggingface.co/Qwen/Qwen3.6-35B-A3B
 - **Qwen3.8-27B model card**: https://huggingface.co/Qwen/Qwen3.8-27B
 - **Qwen blog (Qwen3.8 benchmarks)**: https://qwen.ai/blog?id=qwen3.8
+- **DeepSeek-V3 technical report**: https://github.com/deepseek-ai/DeepSeek-V3
+- **DeepSeek-R1 paper**: https://github.com/deepseek-ai/DeepSeek-R1
 
 ---
 
