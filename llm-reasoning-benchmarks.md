@@ -38,7 +38,7 @@ Quickly compare open-weight LLMs for reasoning by reviewing results across multi
 Progressive gating: each benchmark acts as a filter. Soft thresholds with overlap zones noted in parentheses.
 
 ```mermaid
-%%{init: {'themeVariables': {'fontSize': '16px'}}}%%
+%%{init: {'themeVariables': {'fontSize': '20px'}}}%%
 flowchart TD
     %% ===== LEFT COLUMN: Decision Gates =====
     Start([Start: New Model\nRun MMLU First])
@@ -63,6 +63,19 @@ flowchart TD
         T4open["T4: Expert (Open)\nQwen3-235B-A22B, Llama-3.1-405B"]
         T4closed["T4: Expert (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
     end
+    
+    %% ===== QWEN 3.x CALIBRATION TRACE =====
+    QwenTrace["Qwen 3.x Family\n(Calibration Ruler)"]
+    QwenTrace -.-> MMLU
+    QwenTrace -.-> GSM8K
+    QwenTrace -.-> BBH
+    QwenTrace -.-> MATH
+    QwenTrace -.-> GPQA
+    QwenTrace -.-> T0
+    QwenTrace -.-> T1
+    QwenTrace -.-> T2
+    QwenTrace -.-> T3
+    QwenTrace -.-> T4open
     
     %% ===== EDGES =====
     Start --> MMLU
@@ -96,15 +109,16 @@ flowchart TD
     GPQA -- "> 65%" --> T4closed
     
     %% ===== STYLING =====
-    classDef tier0 fill:#ffcccc,stroke:#cc0000,stroke-width:2px,color:#222,font-size:16px;
-    classDef tier1 fill:#ffe6cc,stroke:#cc6600,stroke-width:2px,color:#222,font-size:16px;
-    classDef tier2 fill:#ffffcc,stroke:#ccaa00,stroke-width:2px,color:#222,font-size:16px;
-    classDef tier3 fill:#ccffcc,stroke:#00aa00,stroke-width:2px,color:#222,font-size:16px;
-    classDef tier4 fill:#cce6ff,stroke:#0066cc,stroke-width:2px,color:#222,font-size:16px;
-    classDef gate fill:#f0f0f0,stroke:#666,stroke-width:1.5px,stroke-dasharray: 5 5,color:#222,font-size:16px;
-    classDef overlap fill:#fff0f0,stroke:#cc3333,stroke-width:1.5px,stroke-dasharray: 3 3,color:#222,font-size:16px;
-    classDef start fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#222,font-size:16px;
+    classDef tier0 fill:#ffcccc,stroke:#cc0000,stroke-width:2px,color:#222,font-size:20px;
+    classDef tier1 fill:#ffe6cc,stroke:#cc6600,stroke-width:2px,color:#222,font-size:20px;
+    classDef tier2 fill:#ffffcc,stroke:#ccaa00,stroke-width:2px,color:#222,font-size:20px;
+    classDef tier3 fill:#ccffcc,stroke:#00aa00,stroke-width:2px,color:#222,font-size:20px;
+    classDef tier4 fill:#cce6ff,stroke:#0066cc,stroke-width:2px,color:#222,font-size:20px;
+    classDef gate fill:#f0f0f0,stroke:#666,stroke-width:1.5px,stroke-dasharray: 5 5,color:#222,font-size:20px;
+    classDef overlap fill:#fff0f0,stroke:#cc3333,stroke-width:1.5px,stroke-dasharray: 3 3,color:#222,font-size:20px;
+    classDef start fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#222,font-size:20px;
     classDef tierBox fill:none,stroke:none;
+    classDef trace fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px,stroke-dasharray: 5 5,color:#222,font-size:20px;
     
     class T0 tier0;
     class T1 tier1;
@@ -115,6 +129,7 @@ flowchart TD
     class Overlap1,Overlap2,Overlap3 overlap;
     class Start start;
     class TIERS tierBox;
+    class QwenTrace trace;
 ```
 
 **How to read:** Enter at **MMLU**. Follow the branch matching the model's score. Overlap zones (dashed pink) indicate models that pass one gate but fail the next—these are the most informative for understanding specific capability gaps.
