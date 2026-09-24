@@ -21,17 +21,15 @@ Quickly compare open-weight LLMs for reasoning by reviewing results across multi
 
 ## Tier Thresholds (Soft Boundaries)
 
-*Thresholds are approximate based on public leaderboard data (Open LLM Leaderboard, Papers With Code, HF Spaces). Models may fall in different tiers on different benchmarks—this is expected and informative.*
+*Thresholds are approximate based on public leaderboard data (Open LLM Leaderboard, Papers With Code, HF Spaces). Models may fall in different tiers on different benchmarks—this is expected and informative. Tiers are defined by capability (benchmark scores), not model size.*
 
-| Tier | Param Range | MMLU | GSM8K | BBH | MATH | GPQA | HumanEval | Representative Models |
-|------|-------------|------|-------|-----|------|------|-----------|----------------------|
-| **T0: Tiny** | < 3B | 40–55% | 20–40% | 0–10% | 0–5% | ~25% (random) | 5–15% | Qwen3-0.6B, Phi-3-mini-3.8B, Gemma-2-2B, Llama-3.2-1B |
-| **T1: Small** | 3–7B | 55–65% | 50–75% | 20–35% | 10–20% | 30–35% | 20–35% | Qwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B, Phi-3.5-mini |
-| **T2: Medium** | 8–30B | 65–75% | 80–90% | 40–55% | 25–40% | 35–45% | 40–55% | Qwen3-8B, Qwen3-14B, Qwen3.8-27B†, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B |
-| **T3: Large** | 30–70B | 75–85% | 90–95% | 55–70% | 40–55% | 40–50% | 55–70% | Qwen3-32B, Qwen3-30B-A3B, Qwen3.6-35B-A3B†, Llama-3.1-70B, Nemotron-3-Ultra, Qwen2.5-72B |
-| **T4: Frontier** | 70B+ / Closed | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | **Open:** Qwen3-235B-A22B, Llama-3.1-405B<br/>**Closed:** GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro |
-
-> † **Qwen3.6** (Apr 2025) and **Qwen3.8** (Aug 2025) are multimodal (Image-Text-to-Text) series. Qwen3.6-35B-A3B (MoE, 35B total/3B active) scores MMLU-Redux 93.3%, GPQA 86%, AIME26 92.7% — T4 performance in T3 param range. Qwen3.8-27B (dense) scores GPQA Diamond 89.2%, LiveCodeBench 90.3%, MathVision 94.6% — T3/T4 performance in T2 param range. Both punch well above their weight class.
+| Tier | MMLU | GSM8K | BBH | MATH | GPQA | HumanEval | Representative Models |
+|------|------|-------|-----|------|------|-----------|----------------------|
+| **T0: Entry** | 40–55% | 20–40% | 0–10% | 0–5% | ~25% (random) | 5–15% | Qwen3-0.6B, Phi-3-mini-3.8B, Gemma-2-2B, Llama-3.2-1B |
+| **T1: Basic** | 55–65% | 50–75% | 20–35% | 10–20% | 30–35% | 20–35% | Qwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B, Phi-3.5-mini |
+| **T2: Competent** | 65–75% | 80–90% | 40–55% | 25–40% | 35–45% | 40–55% | Qwen3-8B, Qwen3-14B, Qwen3.8-27B, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B |
+| **T3: Advanced** | 75–85% | 90–95% | 55–70% | 40–55% | 40–50% | 55–70% | Qwen3-32B, Qwen3-30B-A3B, Qwen3.6-35B-A3B, Llama-3.1-70B, Nemotron-3-Ultra, Qwen2.5-72B |
+| **T4: Expert** | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | **Open:** Qwen3-235B-A22B, Llama-3.1-405B<br/>**Closed:** GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro |
 
 ---
 
@@ -58,12 +56,12 @@ flowchart TD
     %% ===== RIGHT COLUMN: Tier Results (aligned vertically) =====
     subgraph TIERS["Model Tiers"]
         direction TB
-        T0[T0: Tiny\n<3B params\nQwen3-0.6B, Phi-3-mini, Gemma-2-2B, Llama-3.2-1B]
-        T1[T1: Small\n3–7B params\nQwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B]
-        T2[T2: Medium\n8–30B params\nQwen3-8B, Qwen3-14B, Qwen3.8-27B†\nLlama-3.1-8B, Nemotron-3-8B, Gemma-2-9B]
-        T3[T3: Large\n30–70B params\nQwen3-32B, Qwen3-30B-A3B\nQwen3.6-35B-A3B†\nLlama-3.1-70B, Nemotron-3-Ultra]
-        T4open["T4: Frontier (Open)\n70B+ params\nQwen3-235B-A22B, Llama-3.1-405B"]
-        T4closed["T4: Frontier (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
+        T0[T0: Entry\nQwen3-0.6B, Phi-3-mini, Gemma-2-2B, Llama-3.2-1B]
+        T1[T1: Basic\nQwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B]
+        T2[T2: Competent\nQwen3-8B, Qwen3-14B, Qwen3.8-27B\nLlama-3.1-8B, Nemotron-3-8B, Gemma-2-9B]
+        T3[T3: Advanced\nQwen3-32B, Qwen3-30B-A3B, Qwen3.6-35B-A3B\nLlama-3.1-70B, Nemotron-3-Ultra]
+        T4open["T4: Expert (Open)\nQwen3-235B-A22B, Llama-3.1-405B"]
+        T4closed["T4: Expert (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
     end
     
     %% ===== EDGES =====
@@ -141,12 +139,12 @@ flowchart LR
     GateGPQA["GPQA Gate\n(40% / 65%)"]
     
     %% Tier Buckets
-    BucketT0["T0: Tiny\nQwen3-0.6B\nPhi-3-mini-3.8B\nGemma-2-2B\nLlama-3.2-1B"]
-    BucketT1["T1: Small\nQwen3-1.7B\nQwen3-4B\nMistral-7B\nLlama-3.2-3B\nPhi-3.5-mini"]
-    BucketT2["T2: Medium\nQwen3-8B\nQwen3-14B\nQwen3.8-27B†\nLlama-3.1-8B\nNemotron-3-8B\nGemma-2-9B"]
-    BucketT3["T3: Large\nQwen3-32B\nQwen3-30B-A3B\nQwen3.6-35B-A3B†\nLlama-3.1-70B\nNemotron-3-Ultra"]
-    BucketT4open["T4: Frontier (Open)\nQwen3-235B-A22B\nLlama-3.1-405B"]
-    BucketT4closed["T4: Frontier (Closed)\nGPT-4o\nClaude 3.5 Sonnet\nGemini 1.5 Pro"]
+    BucketT0["T0: Entry\nQwen3-0.6B\nPhi-3-mini-3.8B\nGemma-2-2B\nLlama-3.2-1B"]
+    BucketT1["T1: Basic\nQwen3-1.7B\nQwen3-4B\nMistral-7B\nLlama-3.2-3B\nPhi-3.5-mini"]
+    BucketT2["T2: Competent\nQwen3-8B\nQwen3-14B\nQwen3.8-27B\nLlama-3.1-8B\nNemotron-3-8B\nGemma-2-9B"]
+    BucketT3["T3: Advanced\nQwen3-32B\nQwen3-30B-A3B\nQwen3.6-35B-A3B\nLlama-3.1-70B\nNemotron-3-Ultra"]
+    BucketT4open["T4: Expert (Open)\nQwen3-235B-A22B\nLlama-3.1-405B"]
+    BucketT4closed["T4: Expert (Closed)\nGPT-4o\nClaude 3.5 Sonnet\nGemini 1.5 Pro"]
     
     %% Flow paths
     AllModels --> GateMMLU
@@ -206,8 +204,6 @@ flowchart LR
 ```
 
 **Reading the flow:** The **Qwen 3.x trace** (purple dashed) shows how a single model family spans all tiers—use it to calibrate where new models land. Models hitting BucketT1 at BBH gate have "basic reasoning but weak CoT"; models reaching BucketT3 at MATH gate have "strong math but not expert science."
-
-> † Qwen3.6-35B-A3B (MoE) and Qwen3.8-27B are multimodal models (Apr/Aug 2025) that significantly exceed their param-tier benchmarks.
 
 ---
 
