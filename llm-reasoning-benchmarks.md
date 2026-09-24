@@ -42,7 +42,7 @@ Progressive gating: each benchmark acts as a filter. Soft thresholds with overla
 ```mermaid
 flowchart TD
     %% Nodes
-    Start([Start: New Model<br/>Run MMLU First])
+    Start([Start: New Model\nRun MMLU First])
     
     MMLU{MMLU Score}
     GSM8K{GSM8K Score}
@@ -50,16 +50,16 @@ flowchart TD
     MATH{MATH Score}
     GPQA{GPQA Score}
     
-    T0[T0: Tiny<br/><3B params<br/>Qwen3-0.5B, Phi-3-mini, Gemma-2-2B]
-    T1[T1: Small<br/>3–7B params<br/>Qwen3-1.5B/4B, Mistral-7B, Llama-3.2-3B]
-    T2[T2: Medium<br/>8–30B params<br/>Qwen3-8B/14B, Llama-3.1-8B, Nemotron-3-8B]
-    T3[T3: Large<br/>30–70B params<br/>Qwen3-32B, Llama-3.1-70B, Nemotron-3-Ultra]
-    T4open[T4: Frontier (Open)<br/>70B+ params<br/>Qwen3-72B, Llama-3.1-405B]
-    T4closed[T4: Frontier (Closed)<br/>GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro]
+    T0[T0: Tiny\n<3B params\nQwen3-0.5B, Phi-3-mini, Gemma-2-2B]
+    T1[T1: Small\n3–7B params\nQwen3-1.5B/4B, Mistral-7B, Llama-3.2-3B]
+    T2[T2: Medium\n8–30B params\nQwen3-8B/14B, Llama-3.1-8B, Nemotron-3-8B]
+    T3[T3: Large\n30–70B params\nQwen3-32B, Llama-3.1-70B, Nemotron-3-Ultra]
+    T4open[T4: Frontier (Open)\n70B+ params\nQwen3-72B, Llama-3.1-405B]
+    T4closed[T4: Frontier (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro]
     
-    Overlap1{{Overlap Zone:<br/>Strong basics,<br/>weak reasoning}}
-    Overlap2{{Overlap Zone:<br/>Good CoT,<br/>limited math}}
-    Overlap3{{Overlap Zone:<br/>Strong math,<br/>GPQA boundary}}
+    Overlap1{{Overlap Zone:\nStrong basics,\nweak reasoning}}
+    Overlap2{{Overlap Zone:\nGood CoT,\nlimited math}}
+    Overlap3{{Overlap Zone:\nStrong math,\nGPQA boundary}}
     
     %% Edges
     Start --> MMLU
@@ -123,7 +123,7 @@ Each tier is a horizontal band. Benchmarks form vertical "gates" showing where e
 ```mermaid
 flowchart LR
     %% Benchmark columns (vertical gates)
-    subgraph B_MMLU["MMLU<br/>(Broad Knowledge)"]
+    subgraph B_MMLU["MMLU\n(Broad Knowledge)"]
         direction TB
         M0[T0: 40–55%]
         M1[T1: 55–65%]
@@ -132,7 +132,7 @@ flowchart LR
         M4[T4: 85–92%]
     end
     
-    subgraph B_GSM8K["GSM8K<br/>(Basic Reasoning)"]
+    subgraph B_GSM8K["GSM8K\n(Basic Reasoning)"]
         direction TB
         G0[T0: 20–40%]
         G1[T1: 50–75%]
@@ -141,7 +141,7 @@ flowchart LR
         G4[T4: 95–98%]
     end
     
-    subgraph B_BBH["BBH<br/>(CoT Reasoning)"]
+    subgraph B_BBH["BBH\n(CoT Reasoning)"]
         direction TB
         B0[T0: 0–10%]
         B1[T1: 20–35%]
@@ -150,7 +150,7 @@ flowchart LR
         B4[T4: 70–85%]
     end
     
-    subgraph B_MATH["MATH<br/>(Advanced Math)"]
+    subgraph B_MATH["MATH\n(Advanced Math)"]
         direction TB
         H0[T0: 0–5%]
         H1[T1: 10–20%]
@@ -159,7 +159,7 @@ flowchart LR
         H4[T4: 55–75%]
     end
     
-    subgraph B_GPQA["GPQA<br/>(Expert Science)"]
+    subgraph B_GPQA["GPQA\n(Expert Science)"]
         direction TB
         P0[T0: ~25%]
         P1[T1: 30–35%]
@@ -202,14 +202,14 @@ Models flow left-to-right through benchmark gates, landing in tier buckets. Qwen
 ```mermaid
 flowchart LR
     %% Source
-    AllModels[("All Models<br/>Enter Here")]
+    AllModels[("All Models\nEnter Here")]
     
     %% Gates
-    GateMMLU[[MMLU Gate<br/>(50% / 65% / 75% / 85%)]]
-    GateGSM8K[[GSM8K Gate<br/>(50% / 75%)]]
-    GateBBH[[BBH Gate<br/>(30% / 55%)]]
-    GateMATH[[MATH Gate<br/>(25% / 55%)]]
-    GateGPQA[[GPQA Gate<br/>(40% / 65%)]]
+    GateMMLU[[MMLU Gate\n(50% / 65% / 75% / 85%)]]
+    GateGSM8K[[GSM8K Gate\n(50% / 75%)]]
+    GateBBH[[BBH Gate\n(30% / 55%)]]
+    GateMATH[[MATH Gate\n(25% / 55%)]]
+    GateGPQA[[GPQA Gate\n(40% / 65%)]]
     
     %% Tier Buckets
     BucketT0["T0: Tiny\nQwen3-0.5B\nPhi-3-mini-3.8B\nGemma-2-2B\nLlama-3.2-1B"]
