@@ -54,8 +54,8 @@ flowchart TD
     T1[T1: Small\n3–7B params\nQwen3-1.5B/4B, Mistral-7B, Llama-3.2-3B]
     T2[T2: Medium\n8–30B params\nQwen3-8B/14B, Llama-3.1-8B, Nemotron-3-8B]
     T3[T3: Large\n30–70B params\nQwen3-32B, Llama-3.1-70B, Nemotron-3-Ultra]
-    T4open[T4: Frontier (Open)\n70B+ params\nQwen3-72B, Llama-3.1-405B]
-    T4closed[T4: Frontier (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro]
+    T4open["T4: Frontier (Open)\n70B+ params\nQwen3-72B, Llama-3.1-405B"]
+    T4closed["T4: Frontier (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
     
     Overlap1{{Overlap Zone:\nStrong basics,\nweak reasoning}}
     Overlap2{{Overlap Zone:\nGood CoT,\nlimited math}}
