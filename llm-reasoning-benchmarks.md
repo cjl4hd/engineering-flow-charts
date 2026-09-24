@@ -25,13 +25,13 @@ Quickly compare open-weight LLMs for reasoning by reviewing results across multi
 
 | Tier | Param Range | MMLU | GSM8K | BBH | MATH | GPQA | HumanEval | Representative Models |
 |------|-------------|------|-------|-----|------|------|-----------|----------------------|
-| **T0: Tiny** | < 3B | 40–55% | 20–40% | 0–10% | 0–5% | ~25% (random) | 5–15% | Qwen3-0.5B, Phi-3-mini-3.8B, Gemma-2-2B, Llama-3.2-1B |
-| **T1: Small** | 3–7B | 55–65% | 50–75% | 20–35% | 10–20% | 30–35% | 20–35% | Qwen3-1.5B, Qwen3-4B, Mistral-7B, Llama-3.2-3B, Phi-3.5-mini |
+| **T0: Tiny** | < 3B | 40–55% | 20–40% | 0–10% | 0–5% | ~25% (random) | 5–15% | Qwen3-0.6B, Phi-3-mini-3.8B, Gemma-2-2B, Llama-3.2-1B |
+| **T1: Small** | 3–7B | 55–65% | 50–75% | 20–35% | 10–20% | 30–35% | 20–35% | Qwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B, Phi-3.5-mini |
 | **T2: Medium** | 8–30B | 65–75% | 80–90% | 40–55% | 25–40% | 35–45% | 40–55% | Qwen3-8B, Qwen3-14B, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B |
-| **T3: Large** | 30–70B | 75–85% | 90–95% | 55–70% | 40–55% | 40–50% | 55–70% | Qwen3-32B, Llama-3.1-70B, Nemotron-3-Ultra, Qwen2.5-72B |
-| **T4: Frontier** | 70B+ / Closed | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | **Open:** Qwen3-72B, Llama-3.1-405B<br/>**Closed:** GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro |
+| **T3: Large** | 30–70B | 75–85% | 90–95% | 55–70% | 40–55% | 40–50% | 55–70% | Qwen3-32B, Qwen3-30B-A3B, Llama-3.1-70B, Nemotron-3-Ultra, Qwen2.5-72B |
+| **T4: Frontier** | 70B+ / Closed | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | **Open:** Qwen3-235B-A22B, Llama-3.1-405B<br/>**Closed:** GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro |
 
-> **Note on Qwen 3.x:** The Qwen 3 family spans all tiers (0.5B → 72B), making it an ideal "ruler" for calibrating these thresholds. Qwen 3.6 (3.6B) and Qwen 3.8 (3.8B) fall in T1; Qwen 3.6 is ~3.6B params, Qwen 3.8 is ~3.8B params.
+> **Note on Qwen 3.x:** The Qwen 3 family (released May 2025) spans all tiers (0.6B → 235B MoE), making it an ideal "ruler" for calibrating thresholds. **Qwen3.6** (Apr 2025) and **Qwen3.8** (Aug 2025) are newer *multimodal* series (Image-Text-to-Text): Qwen3.6 has 35B-A3B (MoE) and 27B; Qwen3.8 has 2.4T-A95B (massive MoE) and 27B. They are not 3.6B/3.8B parameter text models.
 
 ---
 
@@ -58,11 +58,11 @@ flowchart TD
     %% ===== RIGHT COLUMN: Tier Results (aligned vertically) =====
     subgraph TIERS["Model Tiers"]
         direction TB
-        T0[T0: Tiny\n<3B params\nQwen3-0.5B, Phi-3-mini, Gemma-2-2B, Llama-3.2-1B]
-        T1[T1: Small\n3–7B params\nQwen3-1.5B, Qwen3-3.6B, Qwen3-3.8B, Qwen3-4B, Mistral-7B, Llama-3.2-3B]
+        T0[T0: Tiny\n<3B params\nQwen3-0.6B, Phi-3-mini, Gemma-2-2B, Llama-3.2-1B]
+        T1[T1: Small\n3–7B params\nQwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B]
         T2[T2: Medium\n8–30B params\nQwen3-8B, Qwen3-14B, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B]
-        T3[T3: Large\n30–70B params\nQwen3-32B, Llama-3.1-70B, Nemotron-3-Ultra]
-        T4open["T4: Frontier (Open)\n70B+ params\nQwen3-72B, Llama-3.1-405B"]
+        T3[T3: Large\n30–70B params\nQwen3-32B, Qwen3-30B-A3B, Llama-3.1-70B, Nemotron-3-Ultra]
+        T4open["T4: Frontier (Open)\n70B+ params\nQwen3-235B-A22B, Llama-3.1-405B"]
         T4closed["T4: Frontier (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
     end
     
@@ -141,11 +141,11 @@ flowchart LR
     GateGPQA[[GPQA Gate\n(40% / 65%)]]
     
     %% Tier Buckets
-    BucketT0["T0: Tiny\nQwen3-0.5B\nPhi-3-mini-3.8B\nGemma-2-2B\nLlama-3.2-1B"]
-    BucketT1["T1: Small\nQwen3-1.5B\nQwen3-3.6B\nQwen3-3.8B\nQwen3-4B\nMistral-7B\nLlama-3.2-3B\nPhi-3.5-mini"]
+    BucketT0["T0: Tiny\nQwen3-0.6B\nPhi-3-mini-3.8B\nGemma-2-2B\nLlama-3.2-1B"]
+    BucketT1["T1: Small\nQwen3-1.7B\nQwen3-4B\nMistral-7B\nLlama-3.2-3B\nPhi-3.5-mini"]
     BucketT2["T2: Medium\nQwen3-8B\nQwen3-14B\nLlama-3.1-8B\nNemotron-3-8B\nGemma-2-9B"]
-    BucketT3["T3: Large\nQwen3-32B\nLlama-3.1-70B\nNemotron-3-Ultra"]
-    BucketT4open["T4: Frontier (Open)\nQwen3-72B\nLlama-3.1-405B"]
+    BucketT3["T3: Large\nQwen3-32B\nQwen3-30B-A3B\nLlama-3.1-70B\nNemotron-3-Ultra"]
+    BucketT4open["T4: Frontier (Open)\nQwen3-235B-A22B\nLlama-3.1-405B"]
     BucketT4closed["T4: Frontier (Closed)\nGPT-4o\nClaude 3.5 Sonnet\nGemini 1.5 Pro"]
     
     %% Flow paths
