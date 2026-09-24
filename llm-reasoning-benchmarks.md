@@ -41,7 +41,7 @@ Progressive gating: each benchmark acts as a filter. Soft thresholds with overla
 
 ```mermaid
 flowchart TD
-    %% Nodes
+    %% ===== LEFT COLUMN: Decision Gates =====
     Start([Start: New Model\nRun MMLU First])
     
     MMLU{MMLU Score}
@@ -50,18 +50,22 @@ flowchart TD
     MATH{MATH Score}
     GPQA{GPQA Score}
     
-    T0[T0: Tiny\n<3B params\nQwen3-0.5B, Phi-3-mini, Gemma-2-2B]
-    T1[T1: Small\n3–7B params\nQwen3-1.5B/4B, Mistral-7B, Llama-3.2-3B]
-    T2[T2: Medium\n8–30B params\nQwen3-8B/14B, Llama-3.1-8B, Nemotron-3-8B]
-    T3[T3: Large\n30–70B params\nQwen3-32B, Llama-3.1-70B, Nemotron-3-Ultra]
-    T4open["T4: Frontier (Open)\n70B+ params\nQwen3-72B, Llama-3.1-405B"]
-    T4closed["T4: Frontier (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
-    
     Overlap1{{Overlap Zone:\nStrong basics,\nweak reasoning}}
     Overlap2{{Overlap Zone:\nGood CoT,\nlimited math}}
     Overlap3{{Overlap Zone:\nStrong math,\nGPQA boundary}}
     
-    %% Edges
+    %% ===== RIGHT COLUMN: Tier Results (aligned vertically) =====
+    subgraph TIERS["Model Tiers"]
+        direction TB
+        T0[T0: Tiny\n<3B params\nQwen3-0.5B, Phi-3-mini, Gemma-2-2B]
+        T1[T1: Small\n3–7B params\nQwen3-1.5B/4B, Mistral-7B, Llama-3.2-3B]
+        T2[T2: Medium\n8–30B params\nQwen3-8B/14B, Llama-3.1-8B, Nemotron-3-8B]
+        T3[T3: Large\n30–70B params\nQwen3-32B, Llama-3.1-70B, Nemotron-3-Ultra]
+        T4open["T4: Frontier (Open)\n70B+ params\nQwen3-72B, Llama-3.1-405B"]
+        T4closed["T4: Frontier (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
+    end
+    
+    %% ===== EDGES =====
     Start --> MMLU
     
     MMLU -- "< 50%" --> T0
@@ -92,15 +96,16 @@ flowchart TD
     GPQA -- "40–65%" --> T4open
     GPQA -- "> 65%" --> T4closed
     
-    %% Styling
-    classDef tier0 fill:#ffcccc,stroke:#cc0000,stroke-width:2px;
-    classDef tier1 fill:#ffe6cc,stroke:#cc6600,stroke-width:2px;
-    classDef tier2 fill:#ffffcc,stroke:#ccaa00,stroke-width:2px;
-    classDef tier3 fill:#ccffcc,stroke:#00aa00,stroke-width:2px;
-    classDef tier4 fill:#cce6ff,stroke:#0066cc,stroke-width:2px;
-    classDef gate fill:#f0f0f0,stroke:#666,stroke-width:1.5px,stroke-dasharray: 5 5;
-    classDef overlap fill:#fff0f0,stroke:#cc3333,stroke-width:1.5px,stroke-dasharray: 3 3;
-    classDef start fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    %% ===== STYLING =====
+    classDef tier0 fill:#ffcccc,stroke:#cc0000,stroke-width:2px,color:#333;
+    classDef tier1 fill:#ffe6cc,stroke:#cc6600,stroke-width:2px,color:#333;
+    classDef tier2 fill:#ffffcc,stroke:#ccaa00,stroke-width:2px,color:#333;
+    classDef tier3 fill:#ccffcc,stroke:#00aa00,stroke-width:2px,color:#333;
+    classDef tier4 fill:#cce6ff,stroke:#0066cc,stroke-width:2px,color:#333;
+    classDef gate fill:#f0f0f0,stroke:#666,stroke-width:1.5px,stroke-dasharray: 5 5,color:#333;
+    classDef overlap fill:#fff0f0,stroke:#cc3333,stroke-width:1.5px,stroke-dasharray: 3 3,color:#333;
+    classDef start fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#333;
+    classDef tierBox fill:none,stroke:none;
     
     class T0 tier0;
     class T1 tier1;
@@ -110,6 +115,7 @@ flowchart TD
     class MMLU,GSM8K,BBH,MATH,GPQA gate;
     class Overlap1,Overlap2,Overlap3 overlap;
     class Start start;
+    class TIERS tierBox;
 ```
 
 **How to read:** Enter at **MMLU**. Follow the branch matching the model's score. Overlap zones (dashed pink) indicate models that pass one gate but fail the next—these are the most informative for understanding specific capability gaps.
