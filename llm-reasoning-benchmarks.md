@@ -27,11 +27,11 @@ Quickly compare open-weight LLMs for reasoning by reviewing results across multi
 |------|-------------|------|-------|-----|------|------|-----------|----------------------|
 | **T0: Tiny** | < 3B | 40–55% | 20–40% | 0–10% | 0–5% | ~25% (random) | 5–15% | Qwen3-0.6B, Phi-3-mini-3.8B, Gemma-2-2B, Llama-3.2-1B |
 | **T1: Small** | 3–7B | 55–65% | 50–75% | 20–35% | 10–20% | 30–35% | 20–35% | Qwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B, Phi-3.5-mini |
-| **T2: Medium** | 8–30B | 65–75% | 80–90% | 40–55% | 25–40% | 35–45% | 40–55% | Qwen3-8B, Qwen3-14B, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B |
-| **T3: Large** | 30–70B | 75–85% | 90–95% | 55–70% | 40–55% | 40–50% | 55–70% | Qwen3-32B, Qwen3-30B-A3B, Llama-3.1-70B, Nemotron-3-Ultra, Qwen2.5-72B |
+| **T2: Medium** | 8–30B | 65–75% | 80–90% | 40–55% | 25–40% | 35–45% | 40–55% | Qwen3-8B, Qwen3-14B, Qwen3.8-27B†, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B |
+| **T3: Large** | 30–70B | 75–85% | 90–95% | 55–70% | 40–55% | 40–50% | 55–70% | Qwen3-32B, Qwen3-30B-A3B, Qwen3.6-35B-A3B†, Llama-3.1-70B, Nemotron-3-Ultra, Qwen2.5-72B |
 | **T4: Frontier** | 70B+ / Closed | 85–92% | 95–98% | 70–85% | 55–75% | 50–65% | 70–85% | **Open:** Qwen3-235B-A22B, Llama-3.1-405B<br/>**Closed:** GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro |
 
-> **Note on Qwen 3.x:** The Qwen 3 family (released May 2025) spans all tiers (0.6B → 235B MoE), making it an ideal "ruler" for calibrating thresholds. **Qwen3.6** (Apr 2025) and **Qwen3.8** (Aug 2025) are newer *multimodal* series (Image-Text-to-Text): Qwen3.6 has 35B-A3B (MoE) and 27B; Qwen3.8 has 2.4T-A95B (massive MoE) and 27B. They are not 3.6B/3.8B parameter text models.
+> † **Qwen3.6** (Apr 2025) and **Qwen3.8** (Aug 2025) are multimodal (Image-Text-to-Text) series. Qwen3.6-35B-A3B (MoE, 35B total/3B active) scores MMLU-Redux 93.3%, GPQA 86%, AIME26 92.7% — T4 performance in T3 param range. Qwen3.8-27B (dense) scores GPQA Diamond 89.2%, LiveCodeBench 90.3%, MathVision 94.6% — T3/T4 performance in T2 param range. Both punch well above their weight class.
 
 ---
 
@@ -60,8 +60,8 @@ flowchart TD
         direction TB
         T0[T0: Tiny\n<3B params\nQwen3-0.6B, Phi-3-mini, Gemma-2-2B, Llama-3.2-1B]
         T1[T1: Small\n3–7B params\nQwen3-1.7B, Qwen3-4B, Mistral-7B, Llama-3.2-3B]
-        T2[T2: Medium\n8–30B params\nQwen3-8B, Qwen3-14B, Llama-3.1-8B, Nemotron-3-8B, Gemma-2-9B]
-        T3[T3: Large\n30–70B params\nQwen3-32B, Qwen3-30B-A3B, Llama-3.1-70B, Nemotron-3-Ultra]
+        T2[T2: Medium\n8–30B params\nQwen3-8B, Qwen3-14B, Qwen3.8-27B†\nLlama-3.1-8B, Nemotron-3-8B, Gemma-2-9B]
+        T3[T3: Large\n30–70B params\nQwen3-32B, Qwen3-30B-A3B\nQwen3.6-35B-A3B†\nLlama-3.1-70B, Nemotron-3-Ultra]
         T4open["T4: Frontier (Open)\n70B+ params\nQwen3-235B-A22B, Llama-3.1-405B"]
         T4closed["T4: Frontier (Closed)\nGPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro"]
     end
@@ -143,8 +143,8 @@ flowchart LR
     %% Tier Buckets
     BucketT0["T0: Tiny\nQwen3-0.6B\nPhi-3-mini-3.8B\nGemma-2-2B\nLlama-3.2-1B"]
     BucketT1["T1: Small\nQwen3-1.7B\nQwen3-4B\nMistral-7B\nLlama-3.2-3B\nPhi-3.5-mini"]
-    BucketT2["T2: Medium\nQwen3-8B\nQwen3-14B\nLlama-3.1-8B\nNemotron-3-8B\nGemma-2-9B"]
-    BucketT3["T3: Large\nQwen3-32B\nQwen3-30B-A3B\nLlama-3.1-70B\nNemotron-3-Ultra"]
+    BucketT2["T2: Medium\nQwen3-8B\nQwen3-14B\nQwen3.8-27B†\nLlama-3.1-8B\nNemotron-3-8B\nGemma-2-9B"]
+    BucketT3["T3: Large\nQwen3-32B\nQwen3-30B-A3B\nQwen3.6-35B-A3B†\nLlama-3.1-70B\nNemotron-3-Ultra"]
     BucketT4open["T4: Frontier (Open)\nQwen3-235B-A22B\nLlama-3.1-405B"]
     BucketT4closed["T4: Frontier (Closed)\nGPT-4o\nClaude 3.5 Sonnet\nGemini 1.5 Pro"]
     
@@ -207,6 +207,8 @@ flowchart LR
 
 **Reading the flow:** The **Qwen 3.x trace** (purple dashed) shows how a single model family spans all tiers—use it to calibrate where new models land. Models hitting BucketT1 at BBH gate have "basic reasoning but weak CoT"; models reaching BucketT3 at MATH gate have "strong math but not expert science."
 
+> † Qwen3.6-35B-A3B (MoE) and Qwen3.8-27B are multimodal models (Apr/Aug 2025) that significantly exceed their param-tier benchmarks.
+
 ---
 
 ## Usage Guide
@@ -241,6 +243,8 @@ Thresholds are soft. When new models are released:
 - **Papers With Code** (benchmark SOTA): https://paperswithcode.com/
 - **EleutherAI LM Evaluation Harness**: https://github.com/EleutherAI/lm-evaluation-harness
 - **Original benchmark papers**: MMLU (Hendrycks et al. 2021), GSM8K (Cobbe et al. 2021), BBH (Suzgun et al. 2022), MATH (Hendrycks et al. 2021), GPQA (Rein et al. 2023)
+- **Qwen3.6-35B-A3B model card**: https://huggingface.co/Qwen/Qwen3.6-35B-A3B
+- **Qwen3.8-27B model card**: https://huggingface.co/Qwen/Qwen3.8-27B
 
 ---
 
