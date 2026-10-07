@@ -26,6 +26,14 @@ The **BBH (BIG-Bench Hard)** benchmark shows the largest tier separation—it's 
 
 ---
 
+## Small LLM Reported Benchmarks
+
+A data-driven table of open-weight models (< 50B total parameters) with **vendor-reported benchmark scores only** — no estimated values. The source of truth is [`data/models.csv`](data/models.csv); regenerate the page with `python generate_table.py`.
+
+📄 **[View Table → llm-small-models.md](llm-small-models.md)**
+
+---
+
 ## Analog vs Digital DSP Decision Flowchart
 
 A decision tree for choosing between analog and digital signal processing implementations. Based on [DSP Guide Chapter 21](https://www.dspguide.com/ch21/1.htm), it evaluates requirements in sequence: dynamic range (>10,000), real-time frequency range (>10,000), latency (<1ns), ripple (<1%), roll-off/stopband needs, and linear phase. Digital wins for precision, linear phase, and steep roll-offs; analog wins for extreme dynamic range, ultra-low latency, and high-frequency real-time processing.

@@ -7,6 +7,7 @@ boundary scores resolve to the tier closest to the model's modal tier so each
 row keeps a coherent classification (see get_tier).
 """
 
+import csv
 from collections import Counter
 from pathlib import Path
 
@@ -256,6 +257,175 @@ def update_markdown_embed(html):
         md_path.write_text(f'{head}{start}\n{html}\n{end}{tail}')
 
 
+# ---------------------------------------------------------------------------
+# Small-model reported-benchmarks table (data/models.csv -> llm-small-models.md)
+#
+# Policy: vendor-reported values only. A cell is filled only when the model's
+# card/technical report publishes that exact number; blank = not reported.
+# ---------------------------------------------------------------------------
+
+CSV_PATH = Path(__file__).resolve().parent / 'data' / 'models.csv'
+SMALL_PAGE_PATH = Path(__file__).resolve().parent / 'llm-small-models.md'
+SMALL_START = '<!-- GENERATED-SMALL-TABLES-START -->'
+SMALL_END = '<!-- GENERATED-SMALL-TABLES-END -->'
+
+# CSV column -> THRESHOLDS key for legacy benchmarks (tier-colored cells)
+TIER_KEY = {'mmlu': 'MMLU', 'gsm8k': 'GSM8K', 'bbh': 'BBH', 'math': 'MATH',
+            'gpqa': 'GPQA', 'humaneval': 'HumanEval'}
+
+BENCH_GROUPS = [
+    ('Reasoning &amp; knowledge', ['gpqa', 'ifeval', 'aime25', 'aime26', 'hmmt25',
+                                   'hmmt26', 'hle', 'aalcr', 'mmlu_pro', 'aime24',
+                                   'livecodebench', 'mmlu', 'gsm8k', 'bbh', 'math',
+                                   'humaneval']),
+    ('Coding &amp; agentic', ['swe_verified', 'swe_pro', 'scicode', 'terminal_bench',
+                              'browsecomp', 'tau3_banking', 'toolathlon', 'officeqa',
+                              'jobbench', 'automation_bench']),
+]
+
+BENCH_LABELS = {
+    'gpqa': 'GPQA-D', 'ifeval': 'IFEval', 'aime25': 'AIME25', 'aime26': 'AIME26',
+    'hmmt25': 'HMMT25', 'hmmt26': 'HMMT26', 'hle': 'HLE', 'aalcr': 'AA-LCR',
+    'mmlu_pro': 'MMLU-Pro', 'aime24': 'AIME24', 'livecodebench': 'LiveCodeBench',
+    'mmlu': 'MMLU', 'gsm8k': 'GSM8K', 'bbh': 'BBH', 'math': 'MATH',
+    'humaneval': 'HumanEval', 'swe_verified': 'SWE-bench Verified',
+    'swe_pro': 'SWE-bench Pro', 'scicode': 'SciCode',
+    'terminal_bench': 'Terminal-Bench', 'browsecomp': 'BrowseComp',
+    'tau3_banking': 'tau3-Banking', 'toolathlon': 'Toolathlon',
+    'officeqa': 'OfficeQA', 'jobbench': 'JobBench',
+    'automation_bench': 'AutomationBench',
+}
+
+TD_BASE = 'padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;'
+
+
+def load_models_csv(path=CSV_PATH):
+    """Load the verified reported-benchmarks data (blank cell = not reported)."""
+    with open(path, newline='') as f:
+        return [{k: (v.strip() if isinstance(v, str) else '') for k, v in row.items()}
+                for row in csv.DictReader(f)]
+
+
+def _params_label(row):
+    total = row.get('params_total_B', '')
+    if not total:
+        return '—'
+    label = f'{total}B'
+    if row.get('arch') == 'moe' and row.get('params_active_B'):
+        label += f' ({row["params_active_B"]}B act.)'
+    return label
+
+
+def _model_cell(row):
+    name, repo = row.get('model', ''), row.get('hf_repo', '')
+    if repo:
+        return f'<a href="https://huggingface.co/{repo}">{name}</a>'
+    return name
+
+
+def _bench_cell(col, row, legacy_ctx):
+    """Benchmark cell; tier-colored only for benchmarks with documented bands."""
+    val = row.get(col, '')
+    if not val:
+        return f'<td style="{TD_BASE}">—</td>'
+    bg = ''
+    tier_key = TIER_KEY.get(col)
+    if tier_key:
+        tier = get_tier(tier_key, val, legacy_ctx)
+        if tier:
+            bg = f'background-color: {TIER_COLORS[tier]}; '
+    return f'<td style="{bg}{TD_BASE}">{val}</td>'
+
+
+def build_small_models_html(rows=None):
+    """Build grouped tables from data/models.csv (without writing any file).
+
+    Rows are sorted by total params ascending. Benchmark columns with no data
+    for any row are omitted so the table stays as tight as the data allows.
+    """
+    if rows is None:
+        rows = load_models_csv()
+    rows = [r for r in rows if r.get('include', 'core') != 'excluded']
+    rows.sort(key=lambda r: float(r.get('params_total_B') or 0))
+
+    shown_groups = []
+    for title, cols in BENCH_GROUPS:
+        shown = [c for c in cols if any(r.get(c) for r in rows)]
+        if shown:
+            shown_groups.append((title, shown))
+    if not shown_groups:
+        return '<p>No benchmark data.</p>'
+
+    parts = []
+    for title, cols in shown_groups:
+        parts.append(f'<p style="font-weight: bold; margin: 14px 0 4px;">{title}</p>')
+        parts.append('<table style="border-collapse: collapse; width: 100%; font-family: monospace; font-size: 12px;">')
+        parts.append('  <thead>')
+        parts.append('    <tr style="background-color: #f0f0f0;">')
+        for header, align in [('Model', 'left'), ('Org', 'left'), ('Params', 'center'),
+                              ('Ctx', 'center'), ('Released', 'center'), ('License', 'left')]:
+            parts.append(f'      <th style="padding: 6px 8px; text-align: {align}; border-bottom: 2px solid #666;">{header}</th>')
+        for c in cols:
+            parts.append(f'      <th style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #666;">{BENCH_LABELS.get(c, c)}</th>')
+        parts.append('    </tr>')
+        parts.append('  </thead>')
+        parts.append('  <tbody>')
+
+        for row in rows:
+            parts.append('    <tr>')
+            parts.append(f'      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;">{_model_cell(row)}</td>')
+            ctx = f"{row['context_k']}K" if row.get('context_k') else '—'
+            identity = [
+                (row.get('org', '') or '—', 'left'),
+                (_params_label(row), 'center'),
+                (ctx, 'center'),
+                (row.get('released', '') or '—', 'center'),
+                (row.get('license', '') or '—', 'left'),
+            ]
+            for value, align in identity:
+                parts.append(f'      <td style="padding: 4px 8px; text-align: {align}; border-bottom: 1px solid #eee;">{value}</td>')
+            legacy_ctx = {TIER_KEY[c]: row.get(c, '') for c in TIER_KEY if row.get(c)}
+            for c in cols:
+                parts.append('      ' + _bench_cell(c, row, legacy_ctx))
+            parts.append('    </tr>')
+
+        parts.append('  </tbody>')
+        parts.append('</table>')
+
+    parts.append('<p style="font-size: 11px; color: #666; margin-top: 8px;">')
+    parts.append('All values are vendor-reported exactly as published (no estimates). '
+                 '"—" = not reported for that benchmark. Metric/protocol details in '
+                 '<a href="data/models.csv">data/models.csv</a>. Sources: ')
+    parts.append('; '.join(f'{r.get("model", "")} ({r.get("source_name", "")})'
+                           for r in rows))
+    parts.append('.</p>')
+    return '\n'.join(parts)
+
+
+def update_small_models_page(html):
+    """Refresh llm-small-models.md between markers, creating the page if needed."""
+    if SMALL_PAGE_PATH.exists():
+        text = SMALL_PAGE_PATH.read_text()
+        if SMALL_START in text and SMALL_END in text:
+            head, rest = text.split(SMALL_START, 1)
+            _, tail = rest.split(SMALL_END, 1)
+            SMALL_PAGE_PATH.write_text(f'{head}{SMALL_START}\n{html}\n{SMALL_END}{tail}')
+            return
+    intro = (
+        '# Small LLM Benchmarks — Reported Results\n'
+        '\n'
+        'Reported benchmark results for open-weight models under **50B total parameters**.\n'
+        '\n'
+        '- **Vendor-reported values only** — a cell is filled only when the model card\n'
+        '  or technical report publishes that exact number. No estimates.\n'
+        '- **"—" means not reported** by the vendor for that benchmark (not zero).\n'
+        '- Source of truth: [`data/models.csv`](data/models.csv), which also carries\n'
+        '  per-model source links and protocol notes (avg@k, eval sweep, harness\n'
+        '  caveats). Regenerate with `python generate_table.py`.\n'
+    )
+    SMALL_PAGE_PATH.write_text(f'{intro}\n{SMALL_START}\n{html}\n{SMALL_END}\n')
+
+
 def main():
     html = build_html()
     print(html)
@@ -263,6 +433,10 @@ def main():
     with open(out_path, 'w') as f:
         f.write(html)
     update_markdown_embed(html)
+
+    small_rows = load_models_csv()
+    update_small_models_page(build_small_models_html(small_rows))
+    print(f'Small-models page: {SMALL_PAGE_PATH.name} ({len(small_rows)} models)')
 
 
 if __name__ == '__main__':

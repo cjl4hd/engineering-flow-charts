@@ -215,3 +215,69 @@ class TestDocSync:
             pytest.skip('embed markers not present in markdown')
         embedded = md.split(start, 1)[1].split(end, 1)[0].strip()
         assert embedded == gt.build_html().strip()
+
+
+# ---------------------------------------------------------------------------
+# Small-model reported-benchmarks table (data/models.csv -> llm-small-models.md)
+# ---------------------------------------------------------------------------
+
+BENCH_COLS = [c for _, cols in gt.BENCH_GROUPS for c in cols]
+
+
+class TestSmallModelsCsv:
+    def test_seeded_models_present(self):
+        names = {r['model'] for r in gt.load_models_csv()}
+        assert {'K2-Horizon-7B', 'MiMo-V2.6-Distill-Qwen-9B'} <= names
+
+    def test_every_row_has_source(self):
+        for r in gt.load_models_csv():
+            assert r['source_url'].startswith('http'), f"{r['model']} missing source_url"
+            assert r['source_name'], f"{r['model']} missing source_name"
+
+    def test_no_estimates(self):
+        # Policy: vendor-reported numbers only. The legacy '+'-estimate flag must
+        # never appear, and every filled cell must parse as a number.
+        for r in gt.load_models_csv():
+            for col in BENCH_COLS:
+                v = r.get(col, '')
+                assert not v.endswith('+'), f"{r['model']}.{col} looks like an estimate"
+                if v:
+                    float(v)
+
+    def test_legacy_scores_flow_through_tier_classifier(self):
+        # K2 reports GPQA Diamond 77.1 -> must classify T4 and color its cell.
+        html = gt.build_small_models_html()
+        m = re.search(r'<td style="background-color: (#[0-9a-f]+);[^"]*">77\.1</td>', html)
+        assert m, 'K2 GPQA cell not found'
+        assert m.group(1) == gt.TIER_COLORS['T4']
+
+
+class TestSmallModelsHtml:
+    def test_contains_both_models_with_links(self):
+        html = gt.build_small_models_html()
+        assert 'K2-Horizon-7B</a>' in html
+        assert 'MiMo-V2.6-Distill-Qwen-9B</a>' in html
+
+    def test_key_reported_scores_present(self):
+        html = gt.build_small_models_html()
+        for score in ('70.6', '73.3', '61.1', '37.1'):
+            assert f'>{score}</td>' in html, f'missing score {score}'
+
+    def test_unreported_columns_omitted(self):
+        # Neither seeded model reports the legacy/modern set -> columns hidden.
+        html = gt.build_small_models_html()
+        for label in ('MMLU', 'GSM8K', 'HumanEval', 'MMLU-Pro', 'LiveCodeBench'):
+            assert f'>{label}</th>' not in html, f'{label} column should be omitted'
+
+    def test_rows_sorted_by_params(self):
+        html = gt.build_small_models_html()
+        assert html.index('K2-Horizon-7B</a>') < html.index('MiMo-V2.6-Distill-Qwen-9B</a>')
+
+    def test_small_page_embed_is_current(self):
+        if not gt.SMALL_PAGE_PATH.exists():
+            pytest.skip('small-models page not generated yet')
+        text = gt.SMALL_PAGE_PATH.read_text()
+        if gt.SMALL_START not in text or gt.SMALL_END not in text:
+            pytest.skip('small-models page missing embed markers')
+        embedded = text.split(gt.SMALL_START, 1)[1].split(gt.SMALL_END, 1)[0].strip()
+        assert embedded == gt.build_small_models_html().strip()
