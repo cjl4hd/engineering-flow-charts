@@ -221,7 +221,7 @@ class TestDocSync:
 # Small-model reported-benchmarks table (data/models.csv -> llm-small-models.md)
 # ---------------------------------------------------------------------------
 
-BENCH_COLS = [c for _, cols in gt.BENCH_GROUPS for c in cols]
+BENCH_COLS = gt.BENCH_COLS
 
 
 class TestSmallModelsCsv:
@@ -278,7 +278,29 @@ class TestSmallModelsHtml:
     def test_row_sort_by_params(self):
         html = gt.build_small_models_html()
         idx = html.find
-        assert idx('Supra Title 50M</a>') < idx('Qwen3.5-0.8B</a>') < idx('Qwen3.5-9B</a>') < idx('K2-Horizon-MoVA-36B-A4B</a>')
+        assert idx('Qwen3.5-0.8B</a>') < idx('SynLogic-7B</a>') < idx('Qwen3.5-9B</a>') < idx('K2-Horizon-MoVA-36B-A4B</a>')
+
+    def test_rows_without_benchmarks_hidden(self):
+        # Rows with no reported benchmark cell are kept in the CSV but never
+        # rendered (keeps the tables compact; the sources footnote omits them
+        # too, since it is built from the same filtered rows).
+        hidden = ['Qwen3.5-9B-Coder', 'Supra Title 50M', 'G9v3-3B',
+                  'Huihui-Ornith-1.5-35B-A3B-abliterated',
+                  'Kimi-K2-Thinking-Distill-Qwen3-4B',
+                  'qwen3.5-9B-super-coder',
+                  'Qwen3-Zero-Coder-Reasoning-V2-0.8B-NEO-EX',
+                  'Astrea-R8-Chat-9B', 'Hemmingway-1', 'qwen3.5-4B-super-coder']
+        csv_names = {r['model'] for r in gt.load_models_csv()}
+        html = gt.build_small_models_html()
+        for name in hidden:
+            assert name in csv_names, f'{name} should stay in data/models.csv'
+            assert name not in html, f'{name} should not be rendered'
+
+    def test_rows_with_benchmarks_kept(self):
+        # Sanity: filtering must not hide models that do report benchmarks.
+        html = gt.build_small_models_html()
+        for name in ('K2-Horizon-7B', 'Laguna-XS-2.1', 'Qwen3-4B-Thinking-2507'):
+            assert name in html
 
     def test_rows_sorted_by_params(self):
         html = gt.build_small_models_html()

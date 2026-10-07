@@ -290,6 +290,9 @@ BENCH_GROUPS = [
                                        'claw_eval', 'wide_search', 'browsecomp']),
 ]
 
+# Flatten all rendered benchmark columns in group order.
+BENCH_COLS = [c for _, cols in BENCH_GROUPS for c in cols]
+
 BENCH_LABELS = {
     'gpqa': 'GPQA-D', 'ifeval': 'IFEval', 'aime25': 'AIME25', 'aime26': 'AIME26',
     'hmmt25': 'HMMT Feb25', 'hmmt26': 'HMMT Feb26/Nov25', 'hle': 'HLE', 'aalcr': 'AA-LCR',
@@ -355,12 +358,15 @@ def _bench_cell(col, row, legacy_ctx):
 def build_small_models_html(rows=None):
     """Build grouped tables from data/models.csv (without writing any file).
 
-    Rows are sorted by total params ascending. Benchmark columns with no data
-    for any row are omitted so the table stays as tight as the data allows.
+    Only rows with at least one reported benchmark cell are rendered, so the
+    tables stay as compact as the data allows (CSV bookkeeping rows stay in
+    data/models.csv). Rows are sorted by total params ascending. Benchmark
+    columns with no data for any shown row are omitted.
     """
     if rows is None:
         rows = load_models_csv()
     rows = [r for r in rows if r.get('include', 'core') != 'excluded']
+    rows = [r for r in rows if any(r.get(c) for c in BENCH_COLS)]
     rows.sort(key=lambda r: float(r.get('params_total_B') or 0))
 
     shown_groups = []
