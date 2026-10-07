@@ -229,8 +229,12 @@ class TestSmallModelsCsv:
         names = {r['model'] for r in gt.load_models_csv()}
         assert {'K2-Horizon-7B', 'MiMo-V2.6-Distill-Qwen-9B'} <= names
 
-    def test_every_row_has_source(self):
+    def test_every_included_row_has_source(self):
+        # Excluded rows are bookkeeping entries for liked quant/mirror repos;
+        # only rendered rows must carry a source link.
         for r in gt.load_models_csv():
+            if r.get('include', 'core') == 'excluded':
+                continue
             assert r['source_url'].startswith('http'), f"{r['model']} missing source_url"
             assert r['source_name'], f"{r['model']} missing source_name"
 
@@ -264,10 +268,17 @@ class TestSmallModelsHtml:
             assert f'>{score}</td>' in html, f'missing score {score}'
 
     def test_unreported_columns_omitted(self):
-        # Neither seeded model reports the legacy/modern set -> columns hidden.
+        # Columns with no data for any row must be hidden (e.g. the legacy MMLU
+        # and GSM8K cells stayed blank across every added model).
         html = gt.build_small_models_html()
-        for label in ('MMLU', 'GSM8K', 'HumanEval', 'MMLU-Pro', 'LiveCodeBench'):
+        for label in ('MMLU', 'GSM8K'):
             assert f'>{label}</th>' not in html, f'{label} column should be omitted'
+        assert '>MMLU-Redux</th>' in html, 'MMLU-Redux column should appear'  # Qwen card reports it
+
+    def test_row_sort_by_params(self):
+        html = gt.build_small_models_html()
+        idx = html.find
+        assert idx('Supra Title 50M</a>') < idx('Qwen3.5-0.8B</a>') < idx('Qwen3.5-9B</a>') < idx('K2-Horizon-MoVA-36B-A4B</a>')
 
     def test_rows_sorted_by_params(self):
         html = gt.build_small_models_html()
