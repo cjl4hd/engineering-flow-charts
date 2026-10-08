@@ -21,6 +21,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <th style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #666;">Released</th>
       <th style="padding: 6px 8px; text-align: left; border-bottom: 2px solid #666;">License</th>
       <th style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #666;">GPQA-D</th>
+      <th style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #666;">AIME25</th>
+      <th style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #666;">AIME26</th>
       <th style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #666;">HMMT Feb25</th>
       <th style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #666;">HMMT Feb26/Nov25</th>
       <th style="padding: 6px 8px; text-align: center; border-bottom: 2px solid #666;">HLE</th>
@@ -53,6 +55,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">42.3</td>
       <td style="background-color: #ffe6cc; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">59.5</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
@@ -65,6 +69,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-03</td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
       <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">51.6</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">22.9</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">19.6</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
@@ -86,6 +92,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-03</td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
       <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">76.2</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">74.0</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">76.8</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
@@ -107,6 +115,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2025-07</td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
       <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">65.8</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">57.5</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">69.6</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
@@ -128,6 +138,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-09</td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
       <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">77.1</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">84.2</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">73.3</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">18.6</td>
@@ -152,6 +164,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">71.8</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">55.0</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">10.0</td>
@@ -169,6 +183,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">128K</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2024-09</td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
@@ -199,6 +215,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">18.3</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
@@ -212,6 +230,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-03</td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
       <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">81.7</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">83.2</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">82.9</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
@@ -235,6 +255,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">86.4</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">20.2</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
@@ -244,6 +266,29 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Qwen/Qwen3.6-27B">Qwen3.6-27B</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Qwen</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">27B</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">87.8</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">94.1</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">93.8</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">84.3</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">24.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">86.2</td>
+      <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">93.5</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
     </tr>
     <tr>
@@ -266,6 +311,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
     </tr>
     <tr>
       <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B">Ornith-1.5-35B-A3B</a></td>
@@ -275,6 +322,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-08</td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">MIT</td>
       <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">89.2</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">25.6</td>
@@ -308,6 +357,100 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B">Qwen3.6-35B-A3B</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Qwen</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">86.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">92.7</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">90.7</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">83.6</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">21.4</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">85.2</td>
+      <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">93.3</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/nvidia/Qwen3.6-35B-A3B-NVFP4">Qwen3.6-35B-A3B-NVFP4</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">nvidia</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-05</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">84.8</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">88.8</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">85.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-NVFP4">Qwen3.6-35B-A3B-NVFP4</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">unsloth</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">86.74</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">92.29</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">85.85</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-NVFP4-Fast">Qwen3.6-35B-A3B-NVFP4-Fast</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">unsloth</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-07</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">87.75</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">91.67</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">85.58</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
     </tr>
     <tr>
       <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B">K2-Horizon-MoVA-36B-A4B</a></td>
@@ -317,6 +460,8 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-09</td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
       <td style="background-color: #cce6ff; padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">80.8</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">25.2</td>
@@ -492,6 +637,20 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
     </tr>
     <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Qwen/Qwen3.6-27B">Qwen3.6-27B</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Qwen</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">27B</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
       <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/poolside/Laguna-XS-2.1">Laguna-XS-2.1</a></td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">poolside</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">33B (3B act.)</td>
@@ -522,6 +681,62 @@ Reported benchmark results for open-weight models under **50B total parameters**
     <tr>
       <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev">KAT-Coder-V2.5-Dev</a></td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Kwaipilot</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-07</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B">Qwen3.6-35B-A3B</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Qwen</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/nvidia/Qwen3.6-35B-A3B-NVFP4">Qwen3.6-35B-A3B-NVFP4</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">nvidia</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-05</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">62.8</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">62.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-NVFP4">Qwen3.6-35B-A3B-NVFP4</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">unsloth</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-NVFP4-Fast">Qwen3.6-35B-A3B-NVFP4-Fast</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">unsloth</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-07</td>
@@ -786,6 +1001,27 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
     </tr>
     <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Qwen/Qwen3.6-27B">Qwen3.6-27B</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Qwen</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">27B</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">77.2</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">53.5</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">71.3</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">36.2</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">83.9</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
       <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/poolside/Laguna-XS-2.1">Laguna-XS-2.1</a></td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">poolside</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">33B (3B act.)</td>
@@ -845,6 +1081,90 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">44.20</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">93.43</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">46.21</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B">Qwen3.6-35B-A3B</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Qwen</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">73.4</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">49.5</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">67.2</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">29.4</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">80.4</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/nvidia/Qwen3.6-35B-A3B-NVFP4">Qwen3.6-35B-A3B-NVFP4</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">nvidia</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-05</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">40.6</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-NVFP4">Qwen3.6-35B-A3B-NVFP4</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">unsloth</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-NVFP4-Fast">Qwen3.6-35B-A3B-NVFP4-Fast</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">unsloth</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-07</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
     </tr>
@@ -1064,6 +1384,23 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">56.4</td>
     </tr>
     <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Qwen/Qwen3.6-27B">Qwen3.6-27B</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Qwen</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">27B</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">59.3</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">72.4</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
       <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/poolside/Laguna-XS-2.1">Laguna-XS-2.1</a></td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">poolside</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">33B (3B act.)</td>
@@ -1115,6 +1452,74 @@ Reported benchmark results for open-weight models under **50B total parameters**
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
     </tr>
     <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B">Qwen3.6-35B-A3B</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Qwen</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">51.5</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">62.8</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">26.9</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">68.7</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">60.1</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/nvidia/Qwen3.6-35B-A3B-NVFP4">Qwen3.6-35B-A3B-NVFP4</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">nvidia</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-05</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">94.7</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-NVFP4">Qwen3.6-35B-A3B-NVFP4</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">unsloth</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-04</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-NVFP4-Fast">Qwen3.6-35B-A3B-NVFP4-Fast</a></td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">unsloth</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">35B (3B act.)</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">262K</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">2026-07</td>
+      <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">Apache-2.0</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+      <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">—</td>
+    </tr>
+    <tr>
       <td style="padding: 4px 8px; font-weight: bold; border-bottom: 1px solid #eee;"><a href="https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B">K2-Horizon-MoVA-36B-A4B</a></td>
       <td style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #eee;">IFM</td>
       <td style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #eee;">36B (4B act.)</td>
@@ -1135,6 +1540,6 @@ Reported benchmark results for open-weight models under **50B total parameters**
 </table>
 <p style="font-size: 11px; color: #666; margin-top: 8px;">
 All values are vendor-reported exactly as published (no estimates). "—" = not reported for that benchmark. Metric/protocol details in <a href="data/models.csv">data/models.csv</a>. Sources: 
-Qwen3.5-0.8B (Qwen model card (thinking mode, via Qwen3.5-2B table)); Qwen3.5-2B (Qwen model card (thinking mode)); Qwen3.5-4B (Qwen model card (thinking mode)); Qwen3-4B-Thinking-2507 (Qwen model card (via Qwen3.5-2B comparison column)); K2-Horizon-7B (IFM model card (full eval sweep + FTPO table)); SynLogic-7B (MiniMaxAI model card); Qwen2.5-Coder-7B-Instruct (Qwen2.5-Coder technical report (arXiv 2409.12186)); MiMo-V2.6-Distill-Qwen-9B (MiMo-V2.6 technical report (model card)); Qwen3.5-9B (Qwen model card (thinking mode)); Ornith-1.5-9B (Ornith model card (avg over 5 independent runs)); Laguna-XS-2.1 (poolside model card); Ornith-1.5-35B-A3B (Ornith model card (avg over 5 independent runs)); KAT-Coder-V2.5-Dev (Kwaipilot model card); K2-Horizon-MoVA-36B-A4B (IFM model card)
+Qwen3.5-0.8B (Qwen model card (thinking mode, via Qwen3.5-2B table)); Qwen3.5-2B (Qwen model card (thinking mode)); Qwen3.5-4B (Qwen model card (thinking mode)); Qwen3-4B-Thinking-2507 (Qwen model card (via Qwen3.5-2B comparison column)); K2-Horizon-7B (IFM model card (full eval sweep + FTPO table)); SynLogic-7B (MiniMaxAI model card); Qwen2.5-Coder-7B-Instruct (Qwen2.5-Coder technical report (arXiv 2409.12186)); MiMo-V2.6-Distill-Qwen-9B (MiMo-V2.6 technical report (model card)); Qwen3.5-9B (Qwen model card (thinking mode)); Ornith-1.5-9B (Ornith model card (avg over 5 independent runs)); Qwen3.6-27B (Qwen model card); Laguna-XS-2.1 (poolside model card); Ornith-1.5-35B-A3B (Ornith model card (avg over 5 independent runs)); KAT-Coder-V2.5-Dev (Kwaipilot model card); Qwen3.6-35B-A3B (Qwen model card); Qwen3.6-35B-A3B-NVFP4 (NVIDIA model card (quant accuracy table)); Qwen3.6-35B-A3B-NVFP4 (Unsloth model card (NVFP4 accuracy benchmarks)); Qwen3.6-35B-A3B-NVFP4-Fast (Unsloth model card (NVFP4 accuracy benchmarks)); K2-Horizon-MoVA-36B-A4B (IFM model card)
 .</p>
 <!-- GENERATED-SMALL-TABLES-END -->
